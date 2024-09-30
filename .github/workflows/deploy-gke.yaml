@@ -37,7 +37,8 @@ jobs:
       with:
         create_credentials_file: true
         token_format: access_token
-        workload_identity_provider: projects/${{ env.PROJECT_NUMBER }}/locations/global/workloadIdentityPools/github-actions/providers/jokr-wlidp-prvdr-dev
+        #workload_identity_provider: projects/${{ env.PROJECT_NUMBER }}/locations/global/workloadIdentityPools/github-actions/providers/jokr-wlidp-prvdr-dev
+        workload_identity_provider: projects/1007977410651/locations/global/workloadIdentityPools/github-actions/providers/dotnet-docs-samples
         service_account: github-actions-gov-sa@${{ env.PROJECT_ID }}.iam.gserviceaccount.com
 
     - name: Connect to Artifact Registry
