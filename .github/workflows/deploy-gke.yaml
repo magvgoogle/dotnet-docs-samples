@@ -7,6 +7,7 @@ on:
 
 env:
   PROJECT_ID: jokr-d-gke-prj
+  GOV_PROJECT_ID: jokr-dev-gov-prj
   PROJECT_NUMBER: 1007977410651
   #USE_GKE_GCLOUD_AUTH_PLUGIN: True
   CLUSTER: joker-gke-dev
@@ -70,7 +71,7 @@ jobs:
     # Build the Docker image and push it to Artifact Registry
     #
     - name: Create image tag
-      run: echo "IMAGE_TAG=${{ env.REPOSITORY_REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.IMAGE }}:$GITHUB_SHA" >> $GITHUB_ENV
+      run: echo "IMAGE_TAG=${{ env.REPOSITORY_REGION }}-docker.pkg.dev/${{ env.GOV_PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.IMAGE }}:$GITHUB_SHA" >> $GITHUB_ENV
 
     - name: Lock image version in deployment.yaml
       run: sed -i 's|CLOUDDEMO_IMAGE|${{ env.IMAGE_TAG }}|g' applications/clouddemo/netcore/deployment.yaml
