@@ -47,7 +47,7 @@ jobs:
 
     - name: Install Google Auth Plugin
       run: |-
-        gcloud components install gke-gcloud-auth-plugin
+        sudo apt-get install google-cloud-cli-gke-gcloud-auth-plugin
     - name: Connect to GKE
       uses: google-github-actions/get-gke-credentials@v2
       with:
