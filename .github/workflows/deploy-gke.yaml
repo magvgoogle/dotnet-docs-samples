@@ -7,7 +7,7 @@ on:
 
 env:
   PROJECT_ID: jokr-d-gke-prj
-  PROJECT_NUMBER: 784518666247
+  PROJECT_NUMBER: 1007977410651
 
   CLUSTER: joker-gke-dev
   CLUSTER_REGION: us-central1
@@ -37,8 +37,7 @@ jobs:
       with:
         create_credentials_file: true
         token_format: access_token
-        #workload_identity_provider: projects/${{ env.PROJECT_NUMBER }}/locations/global/workloadIdentityPools/github-actions/providers/jokr-wlidp-prvdr-dev
-        workload_identity_provider: projects/1007977410651/locations/global/workloadIdentityPools/github-actions/providers/dotnet-docs-samples
+        workload_identity_provider: projects/${{ env.PROJECT_NUMBER }}/locations/global/workloadIdentityPools/github-actions-wrkld-id-pool/providers/jokr-wlidp-prvdr-dev
         service_account: github-actions-gov-sa@${{ env.PROJECT_ID }}.iam.gserviceaccount.com
 
     - name: Connect to Artifact Registry
@@ -49,7 +48,7 @@ jobs:
       uses: google-github-actions/get-gke-credentials@v0
       with:
         cluster_name: ${{ env.CLUSTER }}
-        location: ${{ env.CLUSTER_REGION }}
+        location: ${{ env.CLUSTER_ZONE }}
 
     #
     # Build the .NET code
