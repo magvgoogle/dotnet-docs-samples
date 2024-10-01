@@ -8,7 +8,7 @@ on:
 env:
   PROJECT_ID: jokr-d-gke-prj
   PROJECT_NUMBER: 1007977410651
-  USE_GKE_GCLOUD_AUTH_PLUGIN: True
+  #USE_GKE_GCLOUD_AUTH_PLUGIN: True
   CLUSTER: joker-gke-dev
   CLUSTER_REGION: us-central1
 
