@@ -9,7 +9,6 @@ env:
   PROJECT_ID: jokr-d-gke-prj
   GOV_PROJECT_ID: jokr-dev-gov-prj
   PROJECT_NUMBER: 1007977410651
-  #USE_GKE_GCLOUD_AUTH_PLUGIN: True
   CLUSTER: joker-gke-dev
   CLUSTER_REGION: us-central1
 
@@ -61,6 +60,10 @@ jobs:
     #
     # Build the .NET code
     #
+    - name: Set Environment Variables
+      run: |
+        echo ""DOTNET_CLI_HOME=$HOME"" >> $GITHUB_ENV
+        echo ""HOME=$HOME"" >> $GITHUB_ENV
     - name: Build solution
       run: |-
         dotnet publish applications/clouddemo/netcore/CloudDemo.MvcCore.sln \
@@ -86,7 +89,7 @@ jobs:
     # Deploy to GKE
     #
     - name: Deploy to GKE
-      run: kubectl apply -f applications/clouddemo/netcore/deployment.yaml
-    #  run: kubectl get pods -A
+    # run: kubectl apply -f applications/clouddemo/netcore/deployment.yaml
+      run: kubectl get pods
     
     
