@@ -41,3 +41,6 @@ But no sample will work until you
 ## Testing
 
 * See [TESTING.md](TESTING.md)
+
+###
+Control Change: v1.0.0
